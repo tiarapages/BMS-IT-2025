@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=.0">
   <title>Belajar Tailwind</title>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
@@ -10,9 +10,73 @@
     .font-poppins {
       font-family: 'Poppins', sans-serif;
     }
+
+    /* container bubble */
+    .bubbles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1; /* biar di belakang konten */
+    }
+
+    .bubble {
+      position: absolute;
+      bottom: -100px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      animation: rise 15s infinite ease-in;
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.5);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
-<body>
-    
+<body class="bg-pink-200 font-poppins p-10 w-full min-h-screen flex justify-center items-center relative overflow-hidden">
+
+  <!-- Bubble effect -->
+  <div class="bubbles">
+    <div class="bubble" style="left:10%; width:40px; height:40px; animation-duration:12s;"></div>
+    <div class="bubble" style="left:30%; width:25px; height:25px; animation-duration:18s;"></div>
+    <div class="bubble" style="left:50%; width:60px; height:60px; animation-duration:20s;"></div>
+    <div class="bubble" style="left:70%; width:30px; height:30px; animation-duration:15s;"></div>
+    <div class="bubble" style="left:85%; width:50px; height:50px; animation-duration:22s;"></div>
+  </div>
+
+  <div class= "flex flex-col lg-flex-row w-full max-w-5xl">
+    <div class="lg-order-0 order-1 w-full flex-col justify-between">
+      <div class="space-y-5"></div>
+      <h2 class="text-2xl text-pink-900 font-medium">
+        Hi, I am <br/>
+        <span class="text-green-700">Tiara Putri prasetya</span>
+      </h2>
+      <div class="space-y-2">
+      <h1 class="text-5xl text-pink-900 font-bold"> Information Technology</h1>
+      <h3 class="text-2xl text-pink-900 font-medium">Institut Teknologi Sepuluh Nopember</h3>
+      </div>
+     <div>
+      <button class="w-fit bg-green-700 px-6 py-3 rounded">
+        <p class="font-bold text-pink-200">My Experience</p>
+      </button> 
+    </div>  
+    </div>
+
+    <div class="w-full flex justify-center">
+      <img src="https://media.licdn.com/dms/image/v2/D4E03AQHECw2636VPFA/profile-displayphoto-crop_800_800/B4EZhmJrtNGYAI-/0/1754060472830?e=1760572800&v=beta&t=XhBWFzve2ZEOeYR9SHIMVbQrX6Wghz3JXu8ohSSMDi8" 
+           alt="Foto Tiara" 
+           class="rounded-full shadow-2xl w-60 h-60 object-cover border-4 border-pink-200">
+    </div>
+  </div>
+
 </body>
 </html>
